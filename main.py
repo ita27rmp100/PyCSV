@@ -15,24 +15,14 @@ def data_Vr(fc) :
             vertical[DATA[0][i]].append(DATA[j][i])
     return vertical
 def number_of(fc,mode="c") : # Counts the number of columns, rows and cells in a CSV file
-    DATA = data(fc)
-    z = 0
-    if mode == "c" :
-        def cells_in_row(fc,mode="r") :
-            y = DATA[int(mode[1:])]
-            if y[0] != ";" :
-                z = DATA[int(mode[1:])].count(";")
-            else :
-                z = DATA[int(mode[1:])].count(";")-1
-            return z
-        for i in range(len(DATA)) :
-            z += cells_in_row(fc,mode=f"r{i}")
-        return z
-    elif  mode[0] == "r" :
-        z = len(DATA)
-    elif mode == "co" :
-        z = len(data_hdf(fc))
-    return z
+    rows = len(data(fc))
+    columns = data_Vr(fc).keys().__len__()
+    if mode == "ce" : #counts number of cells
+        return rows*columns
+    elif  mode[0] == "r" : #counts rows number
+        return rows
+    elif mode == "co" : #counts columns number
+        return columns
 def csv_files_in(folder) :  # return the csv files in folder 
     import os
     list_folder = os.listdir(r"{}".format(folder))

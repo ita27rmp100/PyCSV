@@ -2,4 +2,4 @@ from main import *
 
 fileDATA = data_Vr("file.csv")
 print(fileDATA)
-print(fileDATA.keys().__len__)
+print(number_of('file.csv','co'))
