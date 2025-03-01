@@ -6,16 +6,10 @@ def dataMatrix(fc) :
     for i in range(0,len(DATA)) :
         DATA[i] = str(DATA[i]).split(',')
     return DATA
-def data_vdf(fc) : 
+def data_Vr(fc) : 
     DATA = data(fc)
     data_vdf_d = {DATA[0]:DATA[1:]}
     return data_vdf_d
-def data_hdf(fc) : # The function horizontally organizes the data imported from the csv file
-    DATA = data(fc)
-    data_hdf_d = {}
-    for i in DATA :
-        data_hdf_d[i[0:i.index(";")]]=i[i.index(";")+1:]
-    return data_hdf_d
 def number_of(fc,mode="c") : # Counts the number of columns, rows and cells in a CSV file
     DATA = data(fc)
     z = 0
