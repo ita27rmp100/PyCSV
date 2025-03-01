@@ -25,13 +25,11 @@ def number_of(fc,mode="c") : # Counts the number of columns, rows and cells in a
         return columns
 def csv_files_in(folder) :  # return the csv files in folder 
     import os
-    list_folder = os.listdir(r"{}".format(folder))
-    y = []
-    for i in list_folder :
-        DATA = i[-4:]
-        if DATA == ".csv" :
-            y.append(i)
-    return y
+    csvFiles = []
+    for i in os.listdir(r"{}".format(folder)) :
+        if i[-4:] == ".csv" :
+            csvFiles.append(i)
+    return csvFiles
 def creat_and_write(fc,data="\n") : # create csv file and write  in it
     with open(r"{}".format(fc),mode="a") as file :
         file.write(data)
