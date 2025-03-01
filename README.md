@@ -31,6 +31,10 @@ A simple library for handling CSV files. It currently has ten functions. Look at
         <td>Create csv file and write in </td>
     </tr>
     <tr>
+        <td>read(fc)</td>
+        <td>Read the content of csv file and return the result as string not as an array like data()</td>
+    </tr>
+    <tr>
         <td>keyword(fc,word)</td>
         <td>Receive a keyword and then search for the row it belongs to</td>
     </tr>

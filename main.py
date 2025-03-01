@@ -34,6 +34,9 @@ def creat_and_write(fc,data="\n") : # create csv file and write  in it
     with open(r"{}".format(fc),mode="a") as file :
         file.write(data)
     return "created"
+def read(fc) :
+    with open(fc) as file :
+        return file.read()
 def keyword(fc,word) : #receive a keyword and then search for the row it belongs to
     DATA = data(fc)
     for i in DATA :
