@@ -39,11 +39,11 @@ def keyword(fc,word) : #receive a keyword and then search for the row it belongs
     for i in DATA :
         if word in i :
             return i 
-def index_cell(fc,cell) : #return the place of cell in the file
+def index_cell(fc,cellContent) : #return the place of cell in the file
     d = data(fc)
-    z = str(keyword(fc,cell))
+    z = str(keyword(fc,cellContent))
     y = d.index(z)+1
-    x = z[0:z.index(cell)].count(";")+1
+    x = z[0:z.index(cellContent)].count(";")+1
     return {"x":x,"y":y}
 def clear(fc) : #delete data in file csv
     with open(fc,mode="w") as file :
