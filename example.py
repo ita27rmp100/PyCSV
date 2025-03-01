@@ -1,4 +1,4 @@
 from main import *
 
-fileDATA = dataHr("file.csv")
+fileDATA = data_Vr("file.csv")
 print(fileDATA)
