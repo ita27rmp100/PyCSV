@@ -33,7 +33,7 @@ def csv_files_in(folder) :  # return the csv files in folder
 def creat_and_write(fc,data="\n") : # create csv file and write  in it
     with open(r"{}".format(fc),mode="a") as file :
         file.write(data)
-    print("created")
+    return "created"
 def keyword(fc,word) : #receive a keyword and then search for the row it belongs to
     DATA = data(fc)
     for i in DATA :
@@ -43,8 +43,14 @@ def index_cell(fc,cell) : #return the place of cell in the file
     d = data(fc)
     z = str(keyword(fc,cell))
     y = d.index(z)+1
-    DATA = z[0:z.index(cell)].count(";")+1
-    return {"DATA":DATA,"y":y}
+    x = z[0:z.index(cell)].count(";")+1
+    return {"x":x,"y":y}
 def clear(fc) : #delete data in file csv
     with open(fc,mode="w") as file :
         pass
+def CSVtoXLSX(fc): #create a copy with .xlsx extension
+    import pandas as pd
+    df = pd.read_csv(fc)
+    excel_filename = f"{fc[:-4]}.xlsx"
+    df.to_excel(excel_filename, index=False)
+    print(f"Successfully converted '{fc}' to '{excel_filename}'")
