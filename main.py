@@ -1,15 +1,10 @@
 def data(fc) :
-    DATA = []
     with open(fc) as file :
-        y = list(file.read())
-        for i in range(y.count("\n")) :
-            DATA.append("".join(y[0:y.index("\n")])+";")
-            y = y[y.index("\n")+1:len(y)]
-        return DATA
+        return file.read().splitlines()
 def dataMatrix(fc) :
     DATA = data(fc)
     for i in range(0,len(DATA)) :
-        DATA[i] = str(DATA[i]).replace(';','').split(',')
+        DATA[i] = str(DATA[i]).split(',')
     return DATA
 def data_vdf(fc) : 
     DATA = data(fc)
